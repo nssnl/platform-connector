@@ -1620,6 +1620,19 @@ class Connector extends AbstractConnector
         ]);
     }
 
+     /**
+     *  Retrieve a person entity based on a provided id.  The CompliancePerson element returned will contain extended information on the requested person.  Ids can be found through the complianceSearchPersons service. Please note that the ids provided might change in the future, so they should not be saved for future reference. for future reference.
+     *
+     * @param string      $personId   compliance_person_id (required)
+     *
+     */
+    public function complianceGetPerson($personId)
+    {
+        return $this->getAdapter()->call('complianceGetPerson', [
+            'compliance_person_id' => $personId,
+        ]);
+    }
+    
     /**
      *  Search for an overview of Corporate Group Relationships aka ‘concern relaties’ for specified dossier number.
      *  The overview gives a summary of the concern-relations size and depth.
